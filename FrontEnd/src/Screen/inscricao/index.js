@@ -53,7 +53,7 @@ export default class InscricaoScreen extends React.Component{
                             searchIcon={<FontAwesome name="search" onPress={()=>{alert("Busca Cursos")}} size={30} color="#313131bd" />}
                             
                     />
-                    <Button icon={<Feather name="settings" size={25} onPress={()=>{alert("Filtra Busca")}} color="#313131bd" style={{marginRight:10,}} />}
+                    <Button icon={<Feather name="settings" size={25} onPress={() => this.props.navigation.navigate('Filtro',{name:"OK TUDO CERTO!"})} color="#313131bd" style={{marginRight:10,}} />}
                                 buttonStyle={{
                                     borderRadius: 0,
                                     marginLeft: 0,

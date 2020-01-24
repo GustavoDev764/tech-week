@@ -1,5 +1,5 @@
 import React from 'react';
-import { Easing } from 'react-native';
+import { Easing, View, Text, Button } from 'react-native';
 import {createAppContainer, createSwitchNavigator} from 'react-navigation';
 import { createDrawerNavigator } from 'react-navigation-drawer';
 import { createStackNavigator } from 'react-navigation-stack';
@@ -17,20 +17,68 @@ import MeusCursos from './src/Screen/meuscursos';
 //Rotas Auxiliares
 import Filtro from './src/Screen/filtro';
 
+class InicialScreen extends React.Component {
+    
+    static navigationOptions = {
+        
+        gestureEnabled:true,
+        gestureDirection: "horizontal",
+        transitionSpec: config,
+        
+      };
+
+    render() {
+      return (
+        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+          <Text>Home Screen</Text>
+          <Button
+            title="Go to Details"
+            onPress={() => this.props.navigation.navigate('Details')}
+          />
+        </View>
+      );
+    }
+  }
+  
+  // ... other code from the previous section
+  
+class DetailsScreen extends React.Component {
+     
+      static navigationOptions = {
+        
+        gestureEnabled:true,
+        gestureDirection: "horizontal",
+        transitionSpec: config,
+        
+      };
+
+      render() {
+        return (
+          <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+            <Text>Details Screen</Text>
+                <Button
+            title="Go to Details... again"
+            onPress={() => this.props.navigation.navigate('Inscricao')}
+            />
+          </View>
+        );
+      }
+}
+
 
 const config = {
-  animation: 'timing',
-  config:{
-    duration:500,
-    easing: Easing.linear,
-    stiffness: 1000,
-    damping: 500,
-    mass: 3,
-    overshootClamping: true,
-    restDisplacementThreshold: 0.01,
-    restSpeedThreshold:0.01,
-  }
-}
+    animation: 'timing',
+    config: {
+      duration:500,
+      easing:Easing.linear,
+    //   stiffness: 1000,
+    //   damping: 500,
+    //   mass: 3,
+    //   overshootClamping: true,
+    //   restDisplacementThreshold: 0.01,
+    //   restSpeedThreshold: 0.01,
+    },
+  };
 
 const MyDrawerNavigator = createDrawerNavigator(
   {
@@ -85,31 +133,16 @@ const MyDrawerNavigator = createDrawerNavigator(
 );
 
 const AuxView = createStackNavigator(
-  {
-    Filtro: {
-      screen: Filtro,
-      // screenOptions:{
-      //   gestureEnabled: false,
-      //   gestureDirection:"horizontal",
-      //   transitionSpec:{
-      //     open: config,
-      //     close: config,
-      //   },
-      //   animation:"fade"
-      // }
+    {
+      Inicial: {
+          screen:InicialScreen,
+      },
+      Details: {
+          screen:DetailsScreen,
+          
+      },
     }
-    
-  },
-  {
-    
-    headerMode: 'none',
-    defaultNavigationOptions: {
-      gestureEnabled: true,
-      cardOverlayEnabled: true,
-     
-    },
-  }
-);
+ );
 
 export default createAppContainer(
   createSwitchNavigator(
@@ -123,3 +156,6 @@ export default createAppContainer(
     }
   )
 );
+
+
+  

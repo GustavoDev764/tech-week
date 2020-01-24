@@ -4,10 +4,10 @@ import {Header, Card, Divider} from 'react-native-elements';
 import {Ionicons, FontAwesome, Feather} from '@expo/vector-icons';
 import MapView from 'react-native-maps';
 
-export default class LogOut extends React.Component{
+export default class Filtro extends React.Component{
 
     static navigationOptions = {
-        drawerLabel: 'Sair',
+        drawerLabel: 'Filtro',
         drawerIcon: ({tintColor}) => <Feather name="user" size={16} color={tintColor} />
     };
 
@@ -20,18 +20,18 @@ export default class LogOut extends React.Component{
         const { navigation  } = this.props;
 
         console.log(navigation);
-
+        
         return(
             <View style={styles.container}>
                 <Header
                     containerStyle={styles.head}  
-                    leftComponent={<Image
+                    leftComponent={<Ionicons name={"ios-arrow-round-back"} onPress={() => navigation.navigate('Inscricao')} size={60} color="#FFF" />}
+                    centerComponent={{ text: 'Filtro', style: { color: '#fff' } }}
+                    rightComponent={<Image
                     source={require('../../../assets/logo.png') }
                     style={styles.image}
                     
                     />}
-                    centerComponent={{ text: 'Home', style: { color: '#fff' } }}
-                    rightComponent={{ icon: 'menu', color: '#fff', onPress: this.openMenu, }}
                 />
                 <SafeAreaView style={{flex: 1,}}>
                     <ScrollView style={{backgroundColor: '#dae1e8',}} showsVerticalScrollIndicator={false}>
