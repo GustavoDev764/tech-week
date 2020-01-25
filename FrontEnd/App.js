@@ -7,61 +7,32 @@ import SideBar from './SideBar';
 
 //Rotas
 import HomeScreen from './src/Screen/home';
-import InscricaoScreen from './src/Screen/inscricao';
+import {IncricaoNavigationStack} from './src/Screen/inscricao';
 import Programacao from './src/Screen/programacao';
 import Certificado from './src/Screen/certificado';
 import LogOut from './src/Screen/logout';
 import Map from  './src/Screen/Map';
 import MeusCursos from './src/Screen/meuscursos';
 
-//Rotas Auxiliares
-import Filtro from './src/Screen/filtro';
-
-
-const config = {
-  animation: 'timing',
-  config:{
-    duration:500,
-    easing: Easing.linear,
-    stiffness: 1000,
-    damping: 500,
-    mass: 3,
-    overshootClamping: true,
-    restDisplacementThreshold: 0.01,
-    restSpeedThreshold:0.01,
-  }
-}
 
 const MyDrawerNavigator = createDrawerNavigator(
   {
-    Inicio:{
-      screen: HomeScreen,
-    },
-
-    Inscricao:{
-      screen: InscricaoScreen
-    },
-
-    MeusCursos:{
-      screen: MeusCursos,
-    },
-
-    Programacao:{
-      screen: Programacao,
-    }, 
-
-    Certificado:{
-      screen:Certificado
-    },
     
-    Sair:{
-      screen: LogOut
-    },
+    
+    HomeScreen,
+   
+    IncricaoNavigationStack,
 
-    Mapa:{
-      screen: Map,
-      
-    }
+    MeusCursos,
+    
+    Programacao,
+    
+    Certificado,
+   
+    LogOut,
+   
+    Map,
+    
     
   },
   {
@@ -84,37 +55,10 @@ const MyDrawerNavigator = createDrawerNavigator(
   }
 );
 
-const AuxView = createStackNavigator(
-  {
-    Filtro: {
-      screen: Filtro,
-      // screenOptions:{
-      //   gestureEnabled: false,
-      //   gestureDirection:"horizontal",
-      //   transitionSpec:{
-      //     open: config,
-      //     close: config,
-      //   },
-      //   animation:"fade"
-      // }
-    }
-    
-  },
-  {
-    
-    headerMode: 'none',
-    defaultNavigationOptions: {
-      gestureEnabled: true,
-      cardOverlayEnabled: true,
-     
-    },
-  }
-);
-
 export default createAppContainer(
   createSwitchNavigator(
     {
-      AuxView: AuxView,
+     
       App: MyDrawerNavigator,
    
     },
