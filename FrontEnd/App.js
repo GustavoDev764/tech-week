@@ -12,7 +12,7 @@ import Programacao from './src/Screen/programacao';
 import Certificado from './src/Screen/certificado';
 import LogOut from './src/Screen/logout';
 import Map from  './src/Screen/Map';
-import MeusCursos from './src/Screen/meuscursos';
+import {MeusCursosNavigationStack} from './src/Screen/meuscursos';
 
 
 const MyDrawerNavigator = createDrawerNavigator(
@@ -23,7 +23,7 @@ const MyDrawerNavigator = createDrawerNavigator(
    
     IncricaoNavigationStack,
 
-    MeusCursos,
+    MeusCursosNavigationStack,
     
     Programacao,
     

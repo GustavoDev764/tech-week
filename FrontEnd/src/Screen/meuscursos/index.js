@@ -3,6 +3,10 @@ import {View, Image, Text, StyleSheet, SafeAreaView, ScrollView, ActivityIndicat
 import {Header, Card, Divider, Icon, Button, Avatar, SocialIcon, SearchBar  } from 'react-native-elements';
 import {Ionicons, FontAwesome, Feather} from '@expo/vector-icons';
 
+import { createStackNavigator } from 'react-navigation-stack';
+
+//Rotas 
+import Aulas from '../aulas';
 
 export default class MeusCursos extends React.Component{
     
@@ -139,6 +143,7 @@ export default class MeusCursos extends React.Component{
                                             backgroundColor:"#ce35dc",
                                                                             
                                         }}
+                                        onPress={()=>{ this.props.navigation.navigate('Aulas');}}
                                         title='AULAS'/>
                                 </View>
 
@@ -275,3 +280,36 @@ const styles = StyleSheet.create({
         
     },
 });
+
+export const MeusCursosNavigationStack = createStackNavigator(
+    {
+        MeusCursos,
+        Aulas,
+        
+    },
+    {
+        headerMode: "none",
+        gestureEnabled:true,
+        gestureDirection: "horizontal",
+        transitionSpec: config,
+
+        navigationOptions:{
+            drawerLabel: "Meus Cursos",
+            drawerIcon: ({tintColor}) => <Feather name="user" size={16} color={tintColor} />,
+        }
+      
+    }
+);
+
+//Configuração Padrao
+const config = {
+   
+    config: {
+      stiffness: 1000,
+      damping: 500,
+      mass: 3,
+      overshootClamping: true,
+      restDisplacementThreshold: 0.01,
+      restSpeedThreshold: 0.01,
+    },
+};
