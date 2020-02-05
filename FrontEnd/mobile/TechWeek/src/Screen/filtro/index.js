@@ -6,6 +6,10 @@ import MapView from 'react-native-maps';
 
 export default class Filtro extends React.Component{
 
+    constructor(props){
+        super(props);
+    }
+
     static navigationOptions = {
 
         headerMode: "none",
@@ -39,7 +43,7 @@ export default class Filtro extends React.Component{
     render(){
         const { navigation  } = this.props;
 
-        console.log(navigation);
+        
         
         return(
             < >
