@@ -19,7 +19,7 @@ export default class CardEvento extends React.Component{
         var isInscrinto = false;
         while ( i < listaCurso.length && isInscrinto == false) {
 
-            console.log("id: "+id+" lista: "+listaCurso[i]);
+            // console.log("id: "+id+" lista: "+listaCurso[i]);
             if(id == listaCurso[i]){
                 isInscrinto = true;
             }
@@ -33,6 +33,7 @@ export default class CardEvento extends React.Component{
     render(){
 
         const { 
+            navigation,
 
             listCurso,
 
@@ -50,8 +51,6 @@ export default class CardEvento extends React.Component{
          } = this.props;
 
          
-
-               
         var isInscrinto = this.isInscrinto(idEvento, listCurso);
 
         return(
@@ -105,14 +104,26 @@ export default class CardEvento extends React.Component{
                                 iconSize={15}
                                 raised={false}
                                 type='github'
-                                onPress={()=>{alert("open GitHub")}}
+                                onPress={()=>{ 
+                                   return navigation.navigate('ViewWeb',{
+                                       navigation: this.props.navigation,
+                                       title: 'GitHub',
+                                       url: github,
+                                   });
+                                }}
                             />
                             
                             <SocialIcon
                                 iconSize={15}
                                 raised={false}
                                 type='linkedin'
-                                onPress={()=>{alert("open linkedin")}}
+                                onPress={()=>{
+                                    return navigation.navigate('ViewWeb',{
+                                        navigation: this.props.navigation,
+                                        title: 'Linkedin',
+                                        url: linkedin,
+                                    });
+                                }}
                                         />
                         </View>
                                             

@@ -8,6 +8,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 
 //Importa todas as sub rotas de Inscrição
 import Filtro from '../filtro';
+import ViewWeb from '../viewWeb';
 
 //Import Compnents Personalizado
 import Head from '../../components/head';
@@ -80,6 +81,7 @@ export default class InscricaoScreen extends React.Component{
     renderEvento = (data, i, listCurso)=>{
     return (
             <CardEvento
+                {...this.props}
                 listCurso    = {listCurso}
                 key          = {i}
                 idEvento     = {data.idEvento}
@@ -150,6 +152,7 @@ export const IncricaoNavigationStack = createStackNavigator(
     {
         InscricaoScreen,
         Filtro,
+        ViewWeb,
         
     },
     {

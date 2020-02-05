@@ -1,9 +1,7 @@
 import React from 'react';
-import { Easing } from 'react-native';
 import {createAppContainer, createSwitchNavigator} from 'react-navigation';
 import { createDrawerNavigator } from 'react-navigation-drawer';
-import { createStackNavigator } from 'react-navigation-stack';
-import SideBar from './SideBar';
+import SideBar from './src/components/sideBar';
 
 //Rotas
 import HomeScreen from './src/Screen/home';
